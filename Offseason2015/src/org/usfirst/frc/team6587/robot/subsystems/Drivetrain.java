@@ -6,8 +6,9 @@ import org.usfirst.frc.team6587.robot.commands.MecanumDrive;
 
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.command.Subsystem;
 
-public class Drivetrain {
+public class Drivetrain extends Subsystem{
 	
 	private Victor frontLeftDrive;
 	private Victor frontRightDrive;

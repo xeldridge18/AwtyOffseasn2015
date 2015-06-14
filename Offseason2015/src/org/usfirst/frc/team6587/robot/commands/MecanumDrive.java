@@ -3,16 +3,14 @@ package org.usfirst.frc.team6587.robot.commands;
 import org.usfirst.frc.team6587.robot.*;
 import org.usfirst.frc.team6587.robot.subsystems.Drivetrain;
 
-public class MecanumDrive {
+import edu.wpi.first.wpilibj.command.*;
+
+public class MecanumDrive extends Command{
 	
 	public MecanumDrive(){
 		requires(Robot.drivetrain);
 	}
 	
-	 private void requires(Drivetrain drivetrain) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	// Called just before this Command runs the first time
     protected void initialize() {
@@ -24,7 +22,7 @@ public class MecanumDrive {
     	double x = Robot.oi.getRawAnalogStickALX();
     	double r = Robot.oi.getRawAnalogStickARX();
     	
-    	Robot.drivetrain.holonomicDriveRamp(y,x,r);
+    	((Drivetrain)Robot.drivetrain).holonomicDriveRamp(y,x,r);
     }
     
     protected boolean isFinished() {
@@ -33,7 +31,7 @@ public class MecanumDrive {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.drivetrain.holonomicDriveUnramped(0,0,0);
+    	((Drivetrain)Robot.drivetrain).holonomicDriveUnramped(0,0,0);
     }
 
     // Called when another command which requires one or more of the same
