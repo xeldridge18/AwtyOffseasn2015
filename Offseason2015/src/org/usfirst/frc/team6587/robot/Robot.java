@@ -19,6 +19,10 @@ import org.usfirst.frc.team6587.robot.subsystems.*;
 public class Robot extends IterativeRobot {
 
 	public static Subsystem drivetrain;
+	public static Subsystem lift;
+	public static Subsystem topClaw;
+	public static Subsystem claw;
+	public static Subsystem intake;
 	public static OI oi;
 
     Command autonomousCommand;
