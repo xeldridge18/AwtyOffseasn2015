@@ -2,7 +2,7 @@ package org.usfirst.frc.team6587.robot.subsystems;
 
 
 import org.usfirst.frc.team6587.robot.RobotMap;
-import org.usfirst.frc.team6587.robot.commands.MecanumDrive;
+import org.usfirst.frc.team6587.robot.commands.drive.MecanumDrive;
 
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.RobotDrive;

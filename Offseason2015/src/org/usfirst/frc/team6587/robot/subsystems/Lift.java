@@ -19,5 +19,9 @@ public class Lift extends Subsystem{
 		liftMotor1.set(input);
 		liftMotor2.set(-input);
 	}
+	
+	public void initDefaultCommand(){
+		
+	}
 
 }

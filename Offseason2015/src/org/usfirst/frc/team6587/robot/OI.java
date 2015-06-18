@@ -3,9 +3,7 @@ package org.usfirst.frc.team6587.robot;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import org.discobots.recyclerush.commands.intake.ToggleIntakeCommand;
-import org.discobots.recyclerush.commands.lift.SetLiftCommand;
-import org.usfirst.frc.team6587.robot.commands.SetLiftSpeed;
+import org.usfirst.frc.team6587.robot.commands.lift.SetLiftSpeed;
 import org.usfirst.frc.team6587.utils.GamePad;
 import org.usfirst.frc.team6587.utils.GamePad.DPadButton;
 

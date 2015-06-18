@@ -23,6 +23,7 @@ public class Robot extends IterativeRobot {
 	public static Subsystem topClaw;
 	public static Subsystem claw;
 	public static Subsystem intake;
+	public static Subsystem electrical;
 	public static OI oi;
 
     Command autonomousCommand;
