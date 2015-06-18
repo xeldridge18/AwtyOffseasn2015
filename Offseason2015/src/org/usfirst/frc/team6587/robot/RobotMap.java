@@ -20,4 +20,13 @@ public class RobotMap {
     public static final int 
     		frontleft = 0, frontright = 1,
     		backleft = 2, backrght = 3;
+    
+    //LIFT MOTORS
+    public static final int liftMotor1 = 4, liftMotor2 = 5;
+    
+    //INTAKE
+    public static final int intake = 6;
+    
+    //PNUEMATICS
+    public static final int soleniodIntake = 3;
 }

@@ -3,6 +3,9 @@ package org.usfirst.frc.team6587.robot;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
+import org.discobots.recyclerush.commands.intake.ToggleIntakeCommand;
+import org.discobots.recyclerush.commands.lift.SetLiftCommand;
+import org.usfirst.frc.team6587.robot.commands.SetLiftSpeed;
 import org.usfirst.frc.team6587.utils.GamePad;
 import org.usfirst.frc.team6587.utils.GamePad.DPadButton;
 
@@ -59,6 +62,19 @@ public class OI {
 	
 	public OI(){
 		
+		b_trigR.whenPressed(new SetLiftSpeed(-1));
+		b_trigR.whenReleased(new SetLiftSpeed(0));
+
+		b_bumpR.whenPressed(new SetLiftSpeed(1));
+		b_bumpR.whenReleased(new SetLiftSpeed(0));
+
+		/*b_bumpL.whenPressed(new SetLiftSpeed(-0.5));
+		b_bumpL.whenReleased(new SetLiftSpeed(0));
+
+		b_bumpL.whenPressed(new SetLiftSpeed(0.5));
+		b_bumpL.whenReleased(new SetLiftSpeed(0));*/
+
+		//b_btnA.whenPressed(new ToggleIntakeCommand());
 	}
 	
 	public double getRawAnalogStickALX() {
