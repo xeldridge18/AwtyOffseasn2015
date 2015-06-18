@@ -3,6 +3,7 @@ package org.usfirst.frc.team6587.robot;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
+import org.usfirst.frc.team6587.robot.commands.claw.*;
 import org.usfirst.frc.team6587.robot.commands.lift.SetLiftSpeed;
 import org.usfirst.frc.team6587.utils.GamePad;
 import org.usfirst.frc.team6587.utils.GamePad.DPadButton;
@@ -72,7 +73,7 @@ public class OI {
 		b_bumpL.whenPressed(new SetLiftSpeed(0.5));
 		b_bumpL.whenReleased(new SetLiftSpeed(0));*/
 
-		//b_btnA.whenPressed(new ToggleIntakeCommand());
+		b_btnA.whenPressed(new ToggleClaw());
 	}
 	
 	public double getRawAnalogStickALX() {

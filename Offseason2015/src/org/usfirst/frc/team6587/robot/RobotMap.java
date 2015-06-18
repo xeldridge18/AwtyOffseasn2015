@@ -28,5 +28,5 @@ public class RobotMap {
     public static final int intake = 6;
     
     //PNUEMATICS
-    public static final int solenoidIntake = 3, breakOn = 4, breakOff = 5;
+    public static final int solenoidTopClaw = 2, solenoidIntake = 3, breakOn = 4, breakOff = 5;
 }

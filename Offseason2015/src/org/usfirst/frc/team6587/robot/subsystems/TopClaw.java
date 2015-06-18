@@ -4,20 +4,20 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team6587.robot.RobotMap;
 
-public class Claw extends Subsystem{
-	Solenoid claw;
+public class TopClaw extends Subsystem{
+	Solenoid topClaw;
 	
-	public Claw(){
-		claw = new Solenoid(RobotMap.solenoidIntake);
-		claw.set(false);
+	public TopClaw(){
+		topClaw = new Solenoid(RobotMap.solenoidTopClaw);
+		topClaw.set(false);
 	}
 	
 	public void setClaw(boolean intakeSet){
-		claw.set(intakeSet);
+		topClaw.set(intakeSet);
 	}
 	
 	public boolean getClawValue(){
-		return claw.get();
+		return topClaw.get();
 	}
 	
 	public void initDefaultCommand(){
