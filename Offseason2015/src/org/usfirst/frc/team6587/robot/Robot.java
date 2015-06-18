@@ -19,13 +19,14 @@ import org.usfirst.frc.team6587.robot.subsystems.*;
 public class Robot extends IterativeRobot {
 
 	public static Subsystem drivetrain;
-	public static Subsystem lift;
-	public static Subsystem topClaw;
-	public static Subsystem claw;
-	public static Subsystem intake;
-	public static Subsystem electrical;
+	public static LiftSubsystem liftSub;
+	public static TopClawSubsystem topClawSub;
+	public static ClawSubsystem clawSub;
+	public static IntakeSubsystem intakeSub;
+	public static BrakeSubsystem brakeSub;
 	public static OI oi;
 
+	public static long loopExecutionTime = 0;
     Command autonomousCommand;
 
     /**
@@ -35,10 +36,18 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
         // instantiate the command used for the autonomous period
+		drivetrain = new Drivetrain();
+		liftSub	= new LiftSubsystem();
+		intakeSub = new IntakeSubsystem();
+		topClawSub = new TopClawSubsystem();
+		clawSub = new ClawSubsystem();
     }
 	
 	public void disabledPeriodic() {
+		long start = System.currentTimeMillis();
 		Scheduler.getInstance().run();
+		long end = System.currentTimeMillis();
+		loopExecutionTime = end - start;
 	}
 
     public void autonomousInit() {
@@ -50,7 +59,10 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-        Scheduler.getInstance().run();
+    	long start = System.currentTimeMillis();
+		Scheduler.getInstance().run();
+		long end = System.currentTimeMillis();
+		loopExecutionTime = end - start;
     }
 
     public void teleopInit() {
@@ -73,13 +85,20 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        Scheduler.getInstance().run();
+    	long start = System.currentTimeMillis();
+		Scheduler.getInstance().run();
+		long end = System.currentTimeMillis();
+		loopExecutionTime = end - start;
     }
     
     /**
      * This function is called periodically during test mode
      */
     public void testPeriodic() {
-        LiveWindow.run();
+    	long start = System.currentTimeMillis();
+		LiveWindow.run();
+		Scheduler.getInstance().run();
+		long end = System.currentTimeMillis();
+		loopExecutionTime = end - start;
     }
 }

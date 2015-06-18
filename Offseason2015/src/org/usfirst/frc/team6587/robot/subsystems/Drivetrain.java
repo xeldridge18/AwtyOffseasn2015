@@ -1,8 +1,8 @@
 package org.usfirst.frc.team6587.robot.subsystems;
 
 
-import org.usfirst.frc.team6587.robot.RobotMap;
-import org.usfirst.frc.team6587.robot.commands.drive.MecanumDrive;
+import org.usfirst.frc.team6587.robot.HW;
+import org.usfirst.frc.team6587.robot.commands.MecanumDrive;
 
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.RobotDrive;
@@ -26,10 +26,10 @@ public class Drivetrain extends Subsystem{
 	RobotDrive robotdrive;
 	
 	public Drivetrain(){
-		frontLeftDrive = new Victor(RobotMap.frontleft);
-		frontRightDrive = new Victor(RobotMap.frontright);
-		backLeftDrive = new Victor(RobotMap.backleft);
-		backRightDrive = new Victor(RobotMap.backrght);
+		frontLeftDrive = new Victor(HW.frontLeft);
+		frontRightDrive = new Victor(HW.frontRight);
+		backLeftDrive = new Victor(HW.backLeft);
+		backRightDrive = new Victor(HW.backRight);
 		
 		robotdrive = new RobotDrive(frontLeftDrive, frontRightDrive, backLeftDrive, backRightDrive);
 	}

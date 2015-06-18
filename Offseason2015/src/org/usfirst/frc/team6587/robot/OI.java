@@ -3,8 +3,13 @@ package org.usfirst.frc.team6587.robot;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import org.usfirst.frc.team6587.robot.commands.claw.*;
-import org.usfirst.frc.team6587.robot.commands.lift.SetLiftSpeed;
+import org.usfirst.frc.team6587.robot.commands.SetBrakeCommand;
+import org.usfirst.frc.team6587.robot.commands.SetIntakeSpeedCommand;
+import org.usfirst.frc.team6587.robot.commands.SetLiftCommand;
+import org.usfirst.frc.team6587.robot.commands.ToggleBrakeCommand;
+import org.usfirst.frc.team6587.robot.commands.ToggleClawCommand;
+import org.usfirst.frc.team6587.robot.commands.ToggleIntakeCommand;
+import org.usfirst.frc.team6587.robot.commands.ToggleTopClawCommand;
 import org.usfirst.frc.team6587.utils.GamePad;
 import org.usfirst.frc.team6587.utils.GamePad.DPadButton;
 
@@ -59,21 +64,26 @@ public class OI {
 	private Button b_clicR = new JoystickButton(gp1, GamePad.AXISBTN_R);
 	private Button b_clicL = new JoystickButton(gp1, GamePad.AXISBTN_L);
 	
-	public OI(){
+	public OI() {
+		// first gamepad
+		b_trigR.whenPressed(new SetLiftCommand(-1));
+		b_trigR.whenReleased(new SetLiftCommand(0));
+
+		b_bumpR.whenPressed(new SetLiftCommand(1));
+		b_bumpR.whenReleased(new SetLiftCommand(0));
 		
-		b_trigR.whenPressed(new SetLiftSpeed(-1));
-		b_trigR.whenReleased(new SetLiftSpeed(0));
+		b_trigL.whenPressed(new SetIntakeSpeedCommand(-1));
 
-		b_bumpR.whenPressed(new SetLiftSpeed(1));
-		b_bumpR.whenReleased(new SetLiftSpeed(0));
-
-		/*b_bumpL.whenPressed(new SetLiftSpeed(-0.5));
-		b_bumpL.whenReleased(new SetLiftSpeed(0));
-
-		b_bumpL.whenPressed(new SetLiftSpeed(0.5));
-		b_bumpL.whenReleased(new SetLiftSpeed(0));*/
-
-		b_btnA.whenPressed(new ToggleClaw());
+		b_bumpL.whenPressed(new SetIntakeSpeedCommand(1));
+		
+		b_btnX.whenPressed(new ToggleIntakeCommand());
+		
+		b_btnA.whenPressed(new ToggleTopClawCommand());
+		
+		b_btnB.whenPressed(new ToggleBrakeCommand());
+		
+		b_btnY.whenPressed(new ToggleClawCommand());
+		
 	}
 	
 	public double getRawAnalogStickALX() {
@@ -90,6 +100,10 @@ public class OI {
 
 	public double getRawAnalogStickARY() {
 		return gp1.getRY();
+	}
+	
+	public boolean getBtn1() {
+		return gp1.getBumper();
 	}
 }
 
